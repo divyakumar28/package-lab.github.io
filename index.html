@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cloud Vision Project</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Jasny Bootstrap CSS -->
+    <link href="vendor/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+<div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Cloud Vision Project</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Image Labeling</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">/r/aww Analytics</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container" id="maincontent" tabindex="-1">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/Cloud%20Vision%20API.png" alt="">
+                    <div class="intro-text">
+                        <h1 class="name">Cloud Vision Project</h1>
+                        <hr class="star-light">
+                    </div>
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <p>This project uses the Google Cloud Vision API to label various pictures. The first subsection below gives the option to upload your own picture and then view the labels that are returned from the API. Then, the next section gives an analysis of the /r/aww subreddit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 spacing-bar"></div>
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/xkcdCorrected.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- image labeling section -->
+    <section id="portfolio">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Image Labeling</h2>
+                    <hr class="star-primary">
+                    <p class="col-md-6 col-md-offset-3">Below is an area that allows you to send a single image to the Google Cloud Vision API, and then see the resulting labels (and their scores) in the form of a bar chart.</p>
+                    <p class="col-md-4 col-md-offset-4">Try uploading your own image by clicking the "Select image" button below!</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+
+                    <div class="text-center">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 400px; height: 225px;"></div>
+                            <div>
+                                <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input id="fileUpload" type="file" accept="image/jpeg, image/png" name="..."></span>
+                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /r/aww analytics section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>/r/aww Analytics</h2>
+                    <hr class="star-primary">
+                    <p class="col-md-8 col-md-offset-2">This section analyzes about 350 pictures that were posted to the /r/aww subreddit. The pictures were acquired by using the Reddit API to grab the top 1000 links, and then only the links that ended with ".jpg" or ".png" were used for labeling.</p>
+                </div>
+                <div class="spacing-bar col-lg-12"></div>
+            <div class="row">
+                <div class="col-md-8 col-lg-offset-2 text-center">
+                    <canvas id="labelPieChart"></canvas>
+                    <p class="col-md-8 col-md-offset-2">This pie chart displays the most frequent raw labels that occurred within our data set.</p>
+                </div>
+                <div class="spacing-bar col-lg-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-lg-offset-2 text-center">
+                    <canvas id="breedPieChart"></canvas>
+                    <p class="col-md-8 col-md-offset-2">This pie chart displays the most frequent animal breeds that occurred within our labels.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4 col-md-offset-4">
+                        <h3>The repository</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="http://github.com/noah-mcaulay/cloud-vision-project" class="btn-social btn-outline"><span class="sr-only">GitHub</span><i class="fa fa-fw fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Noah Mcaulay
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
+
+    <!-- Chart JavaScript -->
+    <script src="vendor/chart/js/chart.min.js"></script>
+
+    <!-- Jasny Bootstrap JavaScript -->
+    <script src="vendor/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+
+    <!-- Google Cloud Vision API Key -->
+    <script src="js/key.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>
